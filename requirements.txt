@@ -1,0 +1,6 @@
+flask
+flask_sqlalchemy
+pymysql
+gunicorn
+psycopg2
+python-dotenv

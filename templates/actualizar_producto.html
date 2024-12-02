@@ -1,0 +1,19 @@
+{% extends 'header.html' %}
+{% block title %}Editar Producto{% endblock %}
+{% block content %}
+<form action="{{ url_for('actualizar_producto', id=producto.id) }}" method="POST">
+    <div class="form-group mb-3">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" value="{{ producto.nombre }}" required>
+    </div>
+    <div class="form-group mb-3">
+        <label for="descripcion">Descripción</label>
+        <textarea class="form-control" id="descripcion" name="descripcion" required>{{producto.descripcion}}</textarea>
+    </div>
+    <div class="form-group mb-3">
+        <label for="stock">Stock</label>
+        <input type="number" class="form-control" id="stock" name="stock" value="{{ producto.stock }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+{% endblock %}

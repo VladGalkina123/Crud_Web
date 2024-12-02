@@ -1,0 +1,30 @@
+{% extends 'header.html' %}
+{% block content %}
+<a href="{{ url_for('crear_producto') }}" class="btn btn-success mb-3">Agregar Producto</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto.id }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.descripcion }}</td>
+            <td>{{ producto.stock }}</td>
+            <td>
+                <a href="{{ url_for('actualizar_producto', id=producto.id) }}" class="btn btn-warning">Editar</a>
+                <a href="{{ url_for('borrar_producto', id=producto.id) }}" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
